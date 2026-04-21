@@ -1,0 +1,23 @@
+# ts-valify - DDD Focused Validation Library
+
+## Overview
+TypeScript-first validation library using decorators. It enforces invariants in class constructors automatically or validates plain objects using the same schema.
+
+## Core Principles
+- **Invariants**: Classes with `@Valified()` throw `ValifyError` immediately upon instantiation if data is invalid.
+- **Layers**: 
+  - `Rule`: Single value check.
+  - `Policy`: Property-level rules.
+  - `Spec`: Cross-field (multi-property) domain specifications.
+- **Zero-inheritance**: No base class needed. Uses decorators.
+
+## Key APIs for AI
+- `@Valified()`: Apply to classes for auto-validation.
+- `@UsePolicy(...rules)`: Apply to properties.
+- `@Satisfies(...specs)`: For cross-field logic.
+- `valify.validateSchema(schema, data)`: Validate multiple keyed payloads and aggregate all errors.
+- `valify.result(proto, data)`: Validate one payload without throwing and instantiate only when `ok` is true.
+- `valify.validate(proto, data)`: For plain objects (interfaces/types).
+
+## Examples
+See `README.md` for 'Quick Start' and 'Custom Rules'.

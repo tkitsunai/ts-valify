@@ -1,0 +1,51 @@
+{
+  "name": "ts-valify",
+  "version": "0.1.0",
+  "description": "TypeScript-first validation library for constructor invariants and schema validation.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target bun && tsc --project tsconfig.build.json --emitDeclarationOnly",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "test:coverage": "bun test --coverage",
+    "test:c": "bun test --coverage",
+    "test:verbose": "bun test --verbose",
+    "test:v": "bun test --verbose",
+    "type-check": "tsc --noEmit",
+    "lint": "biome check src tests",
+    "lint:fix": "biome check --write src tests",
+    "format": "biome format --write src tests"
+  },
+  "keywords": [
+    "typescript",
+    "decorators",
+    "constructor-validation",
+    "ddd",
+    "domain-driven-design",
+    "domain-model",
+    "plain-object-validation",
+    "schema-validation",
+    "validation",
+    "library"
+  ],
+  "license": "MIT",
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "latest",
+    "@types/bun": "latest",
+    "bun": "^1.3.12",
+    "typescript": "^6.0.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "bun"
+    ]
+  }
+}
