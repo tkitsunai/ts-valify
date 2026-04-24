@@ -5,7 +5,7 @@ This document defines the release operations for ts-valify.
 ## Prerequisites
 
 - The GitHub Actions `Release` workflow is enabled.
-- `NPM_TOKEN` is configured in repository secrets.
+- npm Trusted Publishing is configured for this GitHub repository.
 - Your npm account has publish permission for `@tkitsunai/ts-valify`.
 
 ## How Releases Work
@@ -49,6 +49,7 @@ To force a specific version, include `Release-As: x.y.z` in the commit body.
 
 ### npm Publish Fails
 
-- Validate `NPM_TOKEN`.
+- Confirm npm Trusted Publisher is configured for this repository.
+- Ensure the workflow has `id-token: write` permission.
 - Confirm npm package publish permissions.
-- Check whether any `npm publish --access public` constraints apply.
+- Check whether any `npm publish --access public --provenance` constraints apply.
