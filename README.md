@@ -30,15 +30,15 @@ A validation library for **TypeScript** designed for Domain-Driven Design (DDD).
 ## Installation
 
 ```sh
-npm install ts-valify
+npm install @tkitsunai/ts-valify
 # or
-pnpm add ts-valify
+pnpm add @tkitsunai/ts-valify
 ```
 
 ## Quick Start
 
 ```ts
-import { Valified, UsePolicy, rules, ValifyError } from "ts-valify";
+import { Valified, UsePolicy, rules, ValifyError } from "@tkitsunai/ts-valify";
 
 @Valified()
 class User {
@@ -149,7 +149,7 @@ A `Rule` receives `(value, field, data)` and returns `string | null`.
 
 #### Inline rule
 ```ts
-import { Rule, Valified, UsePolicy } from "ts-valify";
+import { Rule, Valified, UsePolicy } from "@tkitsunai/ts-valify";
 
 const isEven: Rule = (value) => {
   if (typeof value !== "number" || value % 2 !== 0) return "Must be an even number";
@@ -193,7 +193,7 @@ class Order {
 Use `validateSchema()` when you want to validate multiple payloads together and collect every error in a single array without instantiating classes first.
 
 ```ts
-import { valify } from "ts-valify";
+import { valify } from "@tkitsunai/ts-valify";
 
 const input = {
   user: { name: "ab", age: -1 },
@@ -229,7 +229,7 @@ Use schema mode when you want to validate plain objects such as API payloads or 
 Define a class without `@Valified()` and use it as a schema.
 
 ```ts
-import { UsePolicy, valify, rules, Satisfies } from "ts-valify";
+import { UsePolicy, valify, rules, Satisfies } from "@tkitsunai/ts-valify";
 
 // Schema definition: omit @Valified() so construction-time validation is not injected.
 @Satisfies((d) => d.password === d.confirm ? null : "Passwords do not match")
@@ -257,7 +257,7 @@ if (errors.length > 0) {
 ### 4. `createValidator()`
 
 ```ts
-import { createValidator } from "ts-valify";
+import { createValidator } from "@tkitsunai/ts-valify";
 
 const validator = createValidator({
   stopAtFirstError: true,

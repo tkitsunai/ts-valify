@@ -3,7 +3,7 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "ts-valify"
+      "package-name": "@tkitsunai/ts-valify"
     }
   }
 }

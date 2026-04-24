@@ -6,7 +6,7 @@ This document defines the release operations for ts-valify.
 
 - The GitHub Actions `Release` workflow is enabled.
 - `NPM_TOKEN` is configured in repository secrets.
-- Your npm account has publish permission for `ts-valify`.
+- Your npm account has publish permission for `@tkitsunai/ts-valify`.
 
 ## How Releases Work
 
