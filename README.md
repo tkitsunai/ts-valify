@@ -340,6 +340,11 @@ You can customize validation behavior through `createValidator()` or the optiona
 | `ValifyConfigurationError` | Class | Thrown when validator setup is invalid, for example when required decorators are missing. |
 | `ValidationError` | Interface | Error object in the shape `{ path: string; message: string }`. |
 
+## Contributing
+
+- Contribution guide: `CONTRIBUTING.md`
+- Release process: `RELEASING.md`
+
 ## License
 
 MIT
