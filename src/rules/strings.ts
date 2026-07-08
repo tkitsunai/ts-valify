@@ -49,5 +49,3 @@ export const isIPv4 = (str: string): boolean => {
   const match = str.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/);
   return match !== null && match.slice(1).every((x) => parseInt(x, 10) <= 255);
 };
-
-

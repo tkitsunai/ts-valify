@@ -6,9 +6,9 @@ import {
   Satisfies,
   UsePolicy,
   Valified,
-  valify,
   ValifyConfigurationError,
   ValifyError,
+  valify,
 } from "../src/index";
 
 // ─────────────────────────────────────────────

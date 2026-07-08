@@ -10,11 +10,7 @@
  * @param data - The full object being validated.
  * @returns `null` when valid, or an error message string when invalid.
  */
-export type Rule = (
-  value: unknown,
-  field: string,
-  data: Record<string, unknown>
-) => string | null;
+export type Rule = (value: unknown, field: string, data: Record<string, unknown>) => string | null;
 
 /**
  * A Specification is a predicate on the whole record.
@@ -23,7 +19,6 @@ export type Rule = (
  * @returns `null` when satisfied, or an error message when not.
  */
 export type Specification = (data: Record<string, unknown>) => string | null;
-
 
 // ─────────────────────────────────────────────
 // Errors

@@ -13,10 +13,7 @@ export type DateLike = string | Date;
  * @param allowedFormats - Allowed date formats. If omitted, all supported formats are accepted.
  * @returns A `Date` object if the value is valid, otherwise `null`.
  */
-export function normalizeToDate(
-  value: DateLike,
-  allowedFormats?: DateFormat[]
-): Date | null {
+export function normalizeToDate(value: DateLike, allowedFormats?: DateFormat[]): Date | null {
   if (value instanceof Date) {
     return isNaN(value.getTime()) ? null : new Date(value.getTime());
   }
@@ -157,11 +154,7 @@ export function isInsideRange(
  * @param allowedFormats - Allowed date formats.
  * @returns `true` if the date is on or after `min`, otherwise `false`.
  */
-export function isDateMin(
-  value: DateLike,
-  min: DateLike,
-  allowedFormats?: DateFormat[]
-): boolean {
+export function isDateMin(value: DateLike, min: DateLike, allowedFormats?: DateFormat[]): boolean {
   const date = normalizeToDate(value, allowedFormats);
   const minDate = normalizeToDate(min, allowedFormats);
   if (!date || !minDate) return false;
@@ -176,11 +169,7 @@ export function isDateMin(
  * @param allowedFormats - Allowed date formats.
  * @returns `true` if the date is on or before `max`, otherwise `false`.
  */
-export function isDateMax(
-  value: DateLike,
-  max: DateLike,
-  allowedFormats?: DateFormat[]
-): boolean {
+export function isDateMax(value: DateLike, max: DateLike, allowedFormats?: DateFormat[]): boolean {
   const date = normalizeToDate(value, allowedFormats);
   const maxDate = normalizeToDate(max, allowedFormats);
   if (!date || !maxDate) return false;

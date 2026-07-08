@@ -1,25 +1,25 @@
 import type { Rule } from "../types";
 import {
-  isMinLength,
-  isMaxLength,
-  isEmail,
-  isUrl,
+  type DateFormat,
+  isDateFormatValid,
+  isInsideRange as isDateInsideRange,
+  isDateMax,
+  isDateMin,
+  isValidDate,
+} from "./date";
+import { isInsideRange, isNegative, isPositive } from "./number";
+import {
   isAlpha,
   isAlphaNumeric,
-  isNumeric,
+  isEmail,
   isHexColor,
-  isJSON,
   isIPv4,
+  isJSON,
+  isMaxLength,
+  isMinLength,
+  isNumeric,
+  isUrl,
 } from "./strings";
-import { isPositive, isNegative, isInsideRange } from "./number";
-import {
-  isInsideRange as isDateInsideRange,
-  isValidDate,
-  isDateMin,
-  isDateMax,
-  isDateFormatValid,
-  type DateFormat,
-} from "./date";
 
 // ─────────────────────────────────────────────
 // Built-in Rules
@@ -59,7 +59,7 @@ export const rules = {
   minLength(min: number, message?: string): Rule {
     return (value) => {
       if (typeof value !== "string") return null; // let string() handle type errors
-      return isMinLength(value, min) ? null : message ?? `Must be at least ${min} characters`;
+      return isMinLength(value, min) ? null : (message ?? `Must be at least ${min} characters`);
     };
   },
 
@@ -69,7 +69,7 @@ export const rules = {
   maxLength(max: number, message?: string): Rule {
     return (value) => {
       if (typeof value !== "string") return null;
-      return isMaxLength(value, max) ? null : message ?? `Must be at most ${max} characters`;
+      return isMaxLength(value, max) ? null : (message ?? `Must be at most ${max} characters`);
     };
   },
 
@@ -213,7 +213,7 @@ export const rules = {
       if (typeof value !== "number") return null;
       return isInsideRange({ value, range: { start: min, end: max } })
         ? null
-        : message ?? `Must be between ${min} and ${max}`;
+        : (message ?? `Must be between ${min} and ${max}`);
     };
   },
 
@@ -233,7 +233,7 @@ export const rules = {
   dateMin(min: string | Date, message?: string): Rule {
     return (value) => {
       if (!(typeof value === "string" || value instanceof Date)) return null;
-      return isDateMin(value, min) ? null : message ?? "Must be after or on the minimum date";
+      return isDateMin(value, min) ? null : (message ?? "Must be after or on the minimum date");
     };
   },
 
@@ -243,7 +243,7 @@ export const rules = {
   dateMax(max: string | Date, message?: string): Rule {
     return (value) => {
       if (!(typeof value === "string" || value instanceof Date)) return null;
-      return isDateMax(value, max) ? null : message ?? "Must be before or on the maximum date";
+      return isDateMax(value, max) ? null : (message ?? "Must be before or on the maximum date");
     };
   },
 
@@ -255,7 +255,7 @@ export const rules = {
       if (!(typeof value === "string" || value instanceof Date)) return null;
       return isDateInsideRange(value, start, end)
         ? null
-        : message ?? "Must be within the allowed date range";
+        : (message ?? "Must be within the allowed date range");
     };
   },
 
@@ -268,7 +268,7 @@ export const rules = {
       const formatName = format === "strict" ? "YYYY-MM-DD" : format.toUpperCase();
       return isDateFormatValid(value, format)
         ? null
-        : message ?? `Must be in ${formatName} format`;
+        : (message ?? `Must be in ${formatName} format`);
     };
   },
 };

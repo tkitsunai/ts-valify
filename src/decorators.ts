@@ -73,9 +73,7 @@ export function UsePolicy(...policyRules: Rule[]): PropertyDecorator {
  * @param specs - Specifications to evaluate after field-level rules.
  * @returns A class decorator.
  */
-export function Satisfies(
-  ...specs: Specification[]
-): (target: Constructor) => void {
+export function Satisfies(...specs: Specification[]): (target: Constructor) => void {
   return (target: Constructor): void => {
     for (const spec of specs) {
       addSpec(target.prototype as object, spec);

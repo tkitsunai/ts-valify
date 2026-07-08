@@ -147,7 +147,11 @@ describe("Date Rules", () => {
 
     it("uses custom message", () => {
       expect(
-        rules.dateFormat("strict", "YYYY-MM-DD形式で入力してください")("2026-04-17T10:30:00.000Z", "d", {})
+        rules.dateFormat("strict", "YYYY-MM-DD形式で入力してください")(
+          "2026-04-17T10:30:00.000Z",
+          "d",
+          {}
+        )
       ).toBe("YYYY-MM-DD形式で入力してください");
     });
   });
