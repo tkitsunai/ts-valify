@@ -1,6 +1,13 @@
 import { describe, expect, it } from "bun:test";
-import { getPolicies, addPolicy, getSpecs, addSpec, isValified, markValified } from "../src/storage";
-import { Rule, Specification } from "../src/types";
+import {
+  addPolicy,
+  addSpec,
+  getPolicies,
+  getSpecs,
+  isValified,
+  markValified,
+} from "../src/storage";
+import type { Rule, Specification } from "../src/types";
 
 describe("Storage Module", () => {
   describe("Policy Management", () => {

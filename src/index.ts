@@ -2,11 +2,11 @@
 
 export { Satisfies, UsePolicy, Valified } from "./decorators";
 export type {
-	SchemaMap,
-	ValidationResult,
-	Validator,
-	ValidatorOptions,
-	UnknownObjectMode,
+  SchemaMap,
+  UnknownObjectMode,
+  ValidationResult,
+  Validator,
+  ValidatorOptions,
 } from "./engine";
 export { createValidator, valify } from "./engine";
 export { rules } from "./rules";
